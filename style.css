@@ -1,0 +1,100 @@
+/* ====== Fonts ====== */
+@font-face {
+    font-family: 'Headline';
+    src: url('fonts/headline.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Text';
+    src: url('fonts/text.ttf') format('truetype');
+}
+
+/* ====== General ====== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Text', sans-serif;
+    background-color: #121212;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #f0f0f0;
+}
+
+/* ====== Links ====== */
+a {
+    color: #00ffff; /* ярко-бирюзовый */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ff9900; /* оранжевый при наведении */
+}
+
+/* ====== Navbar ====== */
+nav {
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-family: 'Headline', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+nav .nav-links a {
+    margin: 0 15px;
+    font-family: 'Text', sans-serif;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #f0f0f0;
+}
+
+/* ====== Main content ====== */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    font-family: 'Headline', sans-serif;
+}
+
+/* ====== Music player ====== */
+audio {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* ====== Responsive navbar ====== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
