@@ -24,13 +24,13 @@ body {
 
 /* ====== Links ====== */
 a {
-    color: #00ffff; /* ярко-бирюзовый */
+    color: #00ffff;
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    color: #ff9900; /* оранжевый при наведении */
+    color: #ff9900;
 }
 
 /* ====== Navbar ====== */
@@ -45,23 +45,40 @@ nav {
     z-index: 1000;
 }
 
-nav .logo {
+nav .logo a {
     font-family: 'Headline', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     color: #f0f0f0;
 }
 
-nav .nav-links a {
-    margin: 0 15px;
-    font-family: 'Text', sans-serif;
-}
-
+/* бургер всегда виден */
 .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
+    display: block;
+    font-size: 1.8rem;
     cursor: pointer;
     color: #f0f0f0;
+}
+
+/* меню по умолчанию скрыто */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* под шапкой */
+    right: 20px;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.nav-links a {
+    padding: 8px 12px;
+    display: block;
+}
+
+.nav-links.active {
+    display: flex;
 }
 
 /* ====== Main content ====== */
@@ -80,21 +97,4 @@ audio {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 1px;
-}
-
-/* ====== Responsive navbar ====== */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
 }
