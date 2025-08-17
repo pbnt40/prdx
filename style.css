@@ -52,20 +52,21 @@ nav .logo a {
     color: #f0f0f0;
 }
 
-/* бургер всегда виден */
+/* ====== Бургер ===== */
 .menu-toggle {
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
     color: #f0f0f0;
+    z-index: 1000;
 }
 
-/* меню по умолчанию скрыто */
+/* ====== Меню ===== */
 .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px; /* под шапкой */
+    top: 60px;
     right: 20px;
     background-color: #1e1e1e;
     padding: 10px;
@@ -79,6 +80,21 @@ nav .logo a {
 
 .nav-links.active {
     display: flex;
+}
+
+/* ====== Медиа-запросы для ПК ===== */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* прячем бургер на ПК */
+    }
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        gap: 20px;
+        background: none;
+        padding: 0;
+    }
 }
 
 /* ====== Main content ====== */
