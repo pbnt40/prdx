@@ -33,7 +33,7 @@ a:hover {
     color: #ff9900;
 }
 
-/* ====== Navbar ====== */
+/* ====== Navbar ===== */
 nav {
     background-color: #1e1e1e;
     padding: 10px 20px;
@@ -54,7 +54,7 @@ nav .logo a {
 
 /* ====== Бургер ===== */
 .menu-toggle {
-    display: block;
+    display: block; /* всегда видна */
     font-size: 1.8rem;
     cursor: pointer;
     color: #f0f0f0;
@@ -63,7 +63,7 @@ nav .logo a {
 
 /* ====== Меню ===== */
 .nav-links {
-    display: none;
+    display: none; /* скрыто по умолчанию */
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -79,22 +79,7 @@ nav .logo a {
 }
 
 .nav-links.active {
-    display: flex;
-}
-
-/* ====== Медиа-запросы для ПК ===== */
-@media (min-width: 768px) {
-    .menu-toggle {
-        display: none; /* прячем бургер на ПК */
-    }
-    .nav-links {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        gap: 20px;
-        background: none;
-        padding: 0;
-    }
+    display: flex; /* показываем при клике */
 }
 
 /* ====== Main content ====== */
