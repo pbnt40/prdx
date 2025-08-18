@@ -103,6 +103,7 @@ audio {
 /* ====== Slot Machine ====== */
 .slot-machine {
     text-align: center;
+    color: #f0f0f0
     padding: 40px 20px;
 }
 
