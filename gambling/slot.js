@@ -1,5 +1,5 @@
 (function () {
-  const symbols = ['🍒', '🍋', '🍊', '🍇', '🔔', '⭐', '7️⃣'];
+  const symbols = ["\u{1F352}", "\u{1F34B}", "\u{1F34A}", "\u{1F347}", "\u{1F514}", "\u{2B50}", "7"];
   let balance = 100;
 
   function $(id) {
