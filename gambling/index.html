@@ -104,20 +104,20 @@
 
       if (r1 === r2 && r2 === r3) {
         balance += bet * 4;
-        messageEl.textContent = 🎉 Jackpot! Three "${r1}". You won ${bet*4}$!;
+        messageEl.textContent = '🎉 Jackpot! Three "${r1}". You won ${bet*4}$!';
         messageEl.style.color = "#4cd137";
       } else if (r1 === r2 || r2 === r3 || r1 === r3) {
         balance += bet;
-        messageEl.textContent = 💰 Two matches. Your bet is returned.;
+        messageEl.textContent = '💰 Two matches. Your bet is returned.';
         messageEl.style.color = "#f1c40f";
       } else {
         balance -= bet;
-        messageEl.textContent = 😢 No match. You lost ${bet}$...;
+        messageEl.textContent = '😢 No match. You lost ${bet}$...';
         messageEl.style.color = "#e84118";
       }
 
       if (balance <= 0) {
-        messageEl.textContent = 💀 You’re out of money!;
+        messageEl.textContent = '💀 You’re out of money!';
         playBtn.disabled = true;
       }
 
