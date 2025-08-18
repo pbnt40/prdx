@@ -99,3 +99,82 @@ audio {
     margin-top: 10px;
     margin-bottom: 1px;
 }
+
+/* ====== Slot Machine ====== */
+.slot-machine {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.slot-machine h1 {
+    font-family: 'Headline', sans-serif;
+    margin-bottom: 15px;
+    color: #00ffff;
+}
+
+.balance {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.reel {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 36px;
+    background-color: #1e1e1e;
+    border: 3px solid #00ffff;
+    border-radius: 12px;
+}
+
+.slot-machine input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100px;
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid #00ffff;
+    background: #121212;
+    color: #f0f0f0;
+}
+
+.slot-machine button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #00ffff;
+    color: #121212;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.slot-machine button:hover {
+    background-color: #ff9900;
+    transform: scale(1.05);
+}
+
+.slot-machine button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* необязательно, но удобно подсветить активный пункт меню */
+.nav-links a[aria-current="page"] {
+    color: #ff9900;
+}
