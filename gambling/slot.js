@@ -22,20 +22,20 @@
 
     if (r1 === r2 && r2 === r3) {
       balance += bet * 4; // x5 суммарно: +4 * bet
-      msg.textContent = Jackpot! Three «${r1}». You won ${bet * 4}$!;
+      msg.textContent = 'Jackpot! Three «${r1}». You won ${bet * 4}$!';
       msg.style.color = "#00ff88";
     } else if (r1 === r2  r2 === r3  r1 === r3) {
       balance += bet; // возврат ставки
-      msg.textContent = Two matches. Bet returned.;
+      msg.textContent = 'Two matches. Bet returned.';
       msg.style.color = "#f1c40f";
     } else {
       balance -= bet;
-      msg.textContent = No matches. You lost ${bet}$...;
+      msg.textContent = 'No matches. You lost ${bet}$...';
       msg.style.color = "#ff5555";
     }
 
     if (balance <= 0) {
-      msg.textContent = You're out of money!;
+      msg.textContent = 'You are out of money!';
       $('playBtn').disabled = true;
     }
 
