@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gambling - PRDX</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gambling</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <!-- Навбар (тот же, что и на других страницах) -->
+
+  <!-- Navbar -->
   <nav>
-    <div class="logo"><a href="/index.html">PRDX</a></div>
-    <div class="menu-toggle" aria-label="Open Menu"; aria-expanded="false" aria-controls="nav-menu">&#9776;</div>
-    <div class="nav-links" id="nav-menu">
+    <div class="logo"><a href="index.html">PRDX</a></div>
+    <div class="menu-toggle">&#9776;</div>
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="/music">Music</a>
       <a href="/contact">Contact</a>
@@ -23,32 +20,119 @@
     </div>
   </nav>
 
-  <main class="container">
-    <section class="slot-machine">
-      <h1>🎰 Slot Machine</h1>
+  <!-- Slot Machine -->
+  <main class="slot-machine">
+    <h1 class="slot-title">🎰 Slot Machine</h1>
 
-      <div class="balance">Balance: <span id="balance">100</span>$</div>
+    <div class="balance">Balance: <span id="balance">100</span>$</div>
 
-      <div class="reels">
-        <div class="reel" id="r1">?</div>
-        <div class="reel" id="r2">?</div>
-        <div class="reel" id="r3">?</div>
-      </div>
+    <div class="reels">
+      <div class="reel" id="r1">?</div>
+      <div class="reel" id="r2">?</div>
+      <div class="reel" id="r3">?</div>
+    </div>
 
-      <p>
-        Bet:
-        <input type="number" id="bet" value="10" min="1" />
-      </p>
+    <p>
+      Bet:
+      <input type="number" id="bet" value="10" min="1" />
+    </p>
 
-      <button id="playBtn">Gamble!</button>
+    <button id="playBtn">Spin</button>
 
-      <div id="message" aria-live="polite"></div>
-    </section>
+    <div id="message"></div>
   </main>
 
-  <!-- твой скрипт бургера -->
-  <script src="/script.js" defer></script>
-  <!-- логика слот-машины только на этой странице -->
-  <script src="slot.js" defer></script>
+  <!-- JS для бургера -->
+  <script src="script.js" defer></script>
+
+  <!-- Встроенный JS слот-машины -->
+  <script>
+    const symbols = ['🍒','🍋','🍊','🍇','🔔','⭐️','7️⃣'];
+    let balance = 100;
+
+    const balanceEl = document.getElementById("balance");
+    const messageEl = document.getElementById("message");
+    const playBtn = document.getElementById("playBtn");
+
+    function updateBalance() {
+      balanceEl.textContent = balance;
+    }
+
+    function getRandomSymbol() {
+      return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    function spin() {
+      const betInput = document.getElementById("bet");
+      let bet = parseInt(betInput.value);
+
+      messageEl.textContent = "";
+      if (isNaN(bet) || bet <= 0) {
+        messageEl.textContent = "Enter a valid bet!";
+        return;
+      }
+
+      if (bet > balance) {
+        messageEl.textContent = "Not enough funds!";
+        return;
+      }
+
+      playBtn.disabled = true;
+      let spinsLeft = 3;
+
+      function nextFrame() {
+        document.getElementById("r1").textContent = getRandomSymbol();
+        document.getElementById("r2").textContent = getRandomSymbol();
+        document.getElementById("r3").textContent = getRandomSymbol();
+
+        spinsLeft--;
+        if (spinsLeft === 0) {
+          showResult(bet);
+          playBtn.disabled = false;
+        } else {
+          setTimeout(nextFrame, 300);
+        }
+      }
+
+      nextFrame();
+    }
+
+    function showResult(bet) {
+      const r1 = document.getElementById("r1").textContent;
+      const r2 = document.getElementById("r2").textContent;
+      const r3 = document.getElementById("r3").textContent;
+
+      if (r1 === r2 && r2 === r3) {
+        balance += bet * 4;
+        messageEl.textContent = 🎉 Jackpot! Three "${r1}". You won ${bet*4}$!;
+        messageEl.style.color = "#4cd137";
+      } else if (r1 === r2 || r2 === r3 || r1 === r3) {
+        balance += bet;
+        messageEl.textContent = 💰 Two matches. Your bet is returned.;
+        messageEl.style.color = "#f1c40f";
+      } else {
+        balance -= bet;
+        messageEl.textContent = 😢 No match. You lost ${bet}$...;
+        messageEl.style.color = "#e84118";
+      }
+
+      if (balance <= 0) {
+        messageEl.textContent = 💀 You’re out of money!;
+        playBtn.disabled = true;
+      }
+
+      updateBalance();
+    }
+
+    playBtn.addEventListener("click", spin);
+
+    document.addEventListener('keydown', function(event) {
+      if (event.code === 'Enter') {
+        if (!playBtn.disabled) spin();
+      }
+    });
+
+    updateBalance();
+  </script>
 </body>
 </html>
