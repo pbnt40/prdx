@@ -3,7 +3,7 @@
     font-family: 'Headline';
     src: url('fonts/headline.ttf') format('truetype');
     ascent-override: 90%;
-    descent-override: 5%;
+    descent-override: 10%;
     line-gap-override: 0%;
 }
 
