@@ -2,6 +2,9 @@
 @font-face {
     font-family: 'Headline';
     src: url('fonts/headline.ttf') format('truetype');
+    ascent-override: 88%;
+    descent-override: 12%;
+    line-gap-override: 5%;
 }
 
 @font-face {
