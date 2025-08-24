@@ -2,9 +2,6 @@
 @font-face {
     font-family: 'Headline';
     src: url('fonts/headline.ttf') format('truetype');
-    ascent-override: 90%;
-    descent-override: 10%;
-    line-gap-override: 0%;
 }
 
 @font-face {
@@ -53,6 +50,9 @@ nav .logo a {
     font-size: 1.5rem;
     font-weight: bold;
     color: #f0f0f0;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* ====== Бургер ===== */
