@@ -51,7 +51,7 @@ nav {
 nav .logo a {
     font-family: 'Headline', sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: #f0f0f0;
 }
 
