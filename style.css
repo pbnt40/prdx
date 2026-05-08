@@ -2,9 +2,9 @@
 @font-face {
     font-family: 'Headline';
     src: url('fonts/headline.woff2') format('truetype');
-    ascent-override: 88%;
+    /*ascent-override: 88%;
     descent-override: 12%;
-    line-gap-override: 5%;
+    line-gap-override: 5%;*/
 }
 
 @font-face {
@@ -139,6 +139,7 @@ audio {
 }
 
 .slot-machine input[type="number"] {
+    font-family: 'Headline', sans-serif;
     padding: 10px;
     font-size: 16px;
     width: 100px;
@@ -150,6 +151,7 @@ audio {
 }
 
 .slot-machine button {
+    font-family: 'Headline', sans-serif;
     display: inline-block;
     padding: 12px 24px;
     font-size: 16px;
