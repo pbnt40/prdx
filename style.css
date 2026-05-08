@@ -2,8 +2,8 @@
 @font-face {
     font-family: 'Headline';
     src: url('fonts/headline.woff2') format('truetype');
-    ascent-override: 75%;
-    descent-override: 25%;
+    ascent-override: 90%;
+    descent-override: 10%;
     line-gap-override: 5%;
 }
 
@@ -39,7 +39,7 @@ a:hover {
 /* ====== Navbar ===== */
 nav {
     background-color: #1e1e1e;
-    padding: 10px 10px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
